@@ -1,11 +1,10 @@
 {
   "name": "askMe",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Questionnaire editor",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "souhe",
-  "license": "ISC"
+  "author": "souhe"
 }
