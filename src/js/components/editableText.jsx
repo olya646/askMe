@@ -8,27 +8,29 @@ var EditableText = React.createClass({
     getInitialState: function(){
         return {
             value: this.props.initialValue || 'value',
-            isEditMode: false;
+            isEditMode: false
         };
     },
     
     render: function(){      
         var content;
         if(this.state.isEditMode){
-            content = <input type="text" onChange={handleValueChange} value={this.state.value} onBlur={this.handleToggleEditMode}/>;
+            content = <input ref="theInput" type="text" onChange={this.handleValueChange} value={this.state.value} onBlur={this.handleToggleEditMode}/>;
         }else{
-            content = <span onClick={this.handleToggleEditMode}>this.state.value</span>
+            content = <span onClick={this.handleToggleEditMode}>{this.state.value}</span>
         }
         
         return content;
     },
     
     handleToggleEditMode: function(){
-        this.setState({isEditMode: !this.state.isEditMode});
+        this.setState({isEditMode: !this.state.isEditMode}, function(){
+            this.refs.theInput.getDOMNode().focus();
+        });
     },
     
-    handleValueChanged: function(newValue){
-        this.setState({value: newValue});
+    handleValueChange: function(event){
+        this.setState({value: event.target.value});
     }
 });
 

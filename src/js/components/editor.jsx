@@ -1,11 +1,11 @@
 var React = require('react');
-var editableText = require('./editableText.jsx');
+var EditableText = require('./editableText.jsx');
 
 var Editor = React.createClass({
     render: function(){
         return (
             <div>
-                
+                <EditableText initialValue="test"/>
             </div>
         );
     }
