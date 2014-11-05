@@ -16,11 +16,11 @@ var EditableText = React.createClass({
     render: function(){      
 
         var textareaStyle = {
-            height: (this.state.lines * 1.4) //+ 'rem'
+            height: (this.state.lines * 1.2) + 'rem'
         }
         
         return (
-            <span className="editable-text">
+            <span className="editable-text">    
                <textarea style={textareaStyle} onChange={this.handleValueChange} value={this.state.value} onBlur={this.handleToggleEditMode}/>
             </span>
         );

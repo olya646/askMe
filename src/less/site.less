@@ -10,12 +10,12 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-family: "Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;
     font-size: 14px;
-    line-height: 1.4;
+    line-height: 1.2rem;
 }
 
 //styles
 body{
-    .font-styles();
+    .fonts-styles();
     background: @Cdark;
     margin: 0;
     
@@ -31,7 +31,7 @@ textarea:focus, input:focus{
 
 .editable-text{
     flex: 1;
-    font-size: 14px;
+    
     input[type="text"]{ 
         box-sizing: border-box;
         width: 100%;
@@ -40,17 +40,16 @@ textarea:focus, input:focus{
     }
     
     textarea{
-        .font-styles();
+        .fonts-styles();
         
         box-sizing: border-box;
         width: 100%;
          resize: none;
-//        line-height: 1.2rem;
+        line-height: 1.2rem;
         border: 0;
         overflow: hidden;
         padding: 0;
-        height: 1.2rem;
-        box-sizing: border-box;
+        height: 1.4;
     }
 }
 
