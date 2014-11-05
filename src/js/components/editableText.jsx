@@ -8,19 +8,22 @@ var EditableText = React.createClass({
     getInitialState: function(){
         return {
             value: this.props.initialValue || 'value',
-            isEditMode: false
+            isEditMode: false,
+            lines: 1 
         };
     },
     
     render: function(){      
-        var content;
-        if(this.state.isEditMode){
-            content = <input ref="theInput" type="text" onChange={this.handleValueChange} value={this.state.value} onBlur={this.handleToggleEditMode}/>;
-        }else{
-            content = <span onClick={this.handleToggleEditMode}>{this.state.value}</span>
+
+        var textareaStyle = {
+            height: (this.state.lines * 1.4) //+ 'rem'
         }
         
-        return content;
+        return (
+            <span className="editable-text">
+               <textarea style={textareaStyle} onChange={this.handleValueChange} value={this.state.value} onBlur={this.handleToggleEditMode}/>
+            </span>
+        );
     },
     
     handleToggleEditMode: function(){
@@ -30,7 +33,8 @@ var EditableText = React.createClass({
     },
     
     handleValueChange: function(event){
-        this.setState({value: event.target.value});
+        var linesCount = event.target.value.split(/\r*\n/).length;
+        this.setState({value: event.target.value, lines: linesCount});
     }
 });
 
